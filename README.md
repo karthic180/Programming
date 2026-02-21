@@ -27,7 +27,7 @@ Applied programming projects for backend development, automation, and data engin
 
 ##  Python Projects
 ETL pipelines, API integrations, automation tools, and data applications.  
-[View Python Projects](https://github.com/karthic180?tab=repositories&q=&language=Python)
+[View Python Projects](https://github.com/karthic180/Python)
 
 ##  Java Projects
 Object-oriented programming and backend service development.  
