@@ -48,8 +48,6 @@ A simple hub linking to all my programming work across **Python**, **Java**, dat
 
 
 #  Python Projects
-
- **Full Python Portfolio:**
  [https://github.com/karthic180/Python](https://github.com/karthic180/Python)
 
 ###  Highlighted Projects
@@ -61,8 +59,6 @@ A simple hub linking to all my programming work across **Python**, **Java**, dat
 ---
 
 #  Java Projects
-
- **Full Java Portfolio:**
  [https://github.com/karthic180/Java](https://github.com/karthic180/Java)
 
 ###  Highlighted Projects
