@@ -73,7 +73,4 @@ A simple hub linking to all my programming work across **Python**, **Java**, **G
 ###  Highlighted Projects
 
 * **Mobile Checker** — Mobile provider coverage checker using Go
-* **API Integration with Go** — Building APIs with Go
-* **Data ETL with Go** — ETL pipeline using Go for data processing
-
 ---
