@@ -11,10 +11,6 @@ Applied software engineering projects focused on **data systems, backend develop
 <img src="https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white"/>
 <img src="https://img.shields.io/badge/Flask-000000?logo=flask&logoColor=white"/>
 <img src="https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white"/>
-<img src="https://img.shields.io/badge/ETL-Pipeline-blue"/>
-<img src="https://img.shields.io/badge/Data-Engineering-1f77b4"/>
-<img src="https://img.shields.io/badge/Automation-FF6F00"/>
-<img src="https://img.shields.io/badge/Analytics-4CAF50"/>
 </p>
 
 **Repository:**
