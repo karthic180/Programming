@@ -1,7 +1,6 @@
-
 #  Programming Portfolio
 
-A simple hub linking to all my programming work across **Python**, **Java**, data engineering, automation, and software development.
+A simple hub linking to all my programming work across **Python**, **Java**, **Go**, data engineering, automation, and software development.
 
 ---
 
@@ -10,6 +9,7 @@ A simple hub linking to all my programming work across **Python**, **Java**, dat
 ###  Languages
 ![Python](https://img.shields.io/badge/Python-3776AB?logo=python\&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-007396?logo=openjdk\&logoColor=white)
+![Go](https://img.shields.io/badge/Go-00ADD8?logo=go&logoColor=white)
 
 ###  Developer Tools
 ![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?logo=visualstudiocode&logoColor=white)
@@ -45,10 +45,10 @@ A simple hub linking to all my programming work across **Python**, **Java**, dat
 ![python-Levenshtein](https://img.shields.io/badge/python--Levenshtein-FFD43B?logo=python&logoColor=white)
 ![prettyprinter](https://img.shields.io/badge/prettyprinter-6A5ACD)
 
-
+---
 
 #  Python Projects
- [https://github.com/karthic180/Python](https://github.com/karthic180/Python)
+[https://github.com/karthic180/Python](https://github.com/karthic180/Python)
 
 ###  Highlighted Projects
 
@@ -59,8 +59,21 @@ A simple hub linking to all my programming work across **Python**, **Java**, dat
 ---
 
 #  Java Projects
- [https://github.com/karthic180/Java](https://github.com/karthic180/Java)
+[https://github.com/karthic180/Java](https://github.com/karthic180/Java)
 
 ###  Highlighted Projects
 
 * **MarketQuotesApp** — Market data retriever
+
+---
+
+#  Go Projects
+[https://github.com/karthic180/Go](https://github.com/karthic180/Go)
+
+###  Highlighted Projects
+
+* **Mobile Checker** — Mobile provider coverage checker using Go
+* **API Integration with Go** — Building APIs with Go
+* **Data ETL with Go** — ETL pipeline using Go for data processing
+
+---
