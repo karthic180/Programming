@@ -57,10 +57,6 @@ These projects demonstrate practical implementation of data-driven automation, l
 <p>
 <img src="https://img.shields.io/badge/Java-ED8B00?logo=java&logoColor=white"/>
 <img src="https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white"/>
-<img src="https://img.shields.io/badge/Backend-Development-red"/>
-<img src="https://img.shields.io/badge/API-Services-0A66C2"/>
-<img src="https://img.shields.io/badge/Database-Integration-336791"/>
-<img src="https://img.shields.io/badge/OOP-Architecture-6A1B9A"/>
 </p>
 
 **Repository:**
