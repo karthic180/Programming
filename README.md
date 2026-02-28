@@ -13,7 +13,7 @@ Applied software engineering projects focused on **data systems, backend develop
 </p>
 
 **Repository:**
-[https://github.com/karthic180/HTML/blob/main/README.md)
+https://github.com/karthic180/HTML
 
 ### What These Projects Cover
 
