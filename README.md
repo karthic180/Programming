@@ -4,7 +4,30 @@ Applied software engineering projects focused on **data systems, backend develop
 
 ---
 
-# Python Projects
+## HTML Projects
+
+<p>
+<img src="https://img.shields.io/badge/HTML-E34F26?logo=html5&logoColor=white"/>
+<img src="https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black"/>
+<img src="https://img.shields.io/badge/CSS-1572B6?logo=css3&logoColor=white"/>
+</p>
+
+**Repository:**
+[https://github.com/karthic180/HTML/blob/main/README.md)
+
+### What These Projects Cover
+
+* Interactive web applications
+* Front-end design and layout
+* Responsive web pages with CSS
+* JavaScript for interactivity
+* HTML5 features and structure
+
+These projects demonstrate my ability to design clean, user-friendly interfaces using HTML, CSS, and JavaScript. I focus on building responsive and visually appealing web applications.
+
+---
+
+## Python Projects
 
 <p>
 <img src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white"/>
@@ -30,7 +53,7 @@ These projects demonstrate practical implementation of data-driven automation, l
 
 ---
 
-# Java Projects
+## Java Projects
 
 <p>
 <img src="https://img.shields.io/badge/Java-ED8B00?logo=java&logoColor=white"/>
@@ -54,7 +77,7 @@ These projects demonstrate practical implementation of data-driven automation, l
 
 ---
 
-# Tools and Platforms
+## Tools and Platforms
 
 <p>
   <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" />
