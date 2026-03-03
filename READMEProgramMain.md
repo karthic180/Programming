@@ -20,19 +20,18 @@ A simple hub linking to all my programming work across **Python**, **Java**, **G
 
 ## Projects
 
-### HTML Projects
-Explore my HTML-based projects showcasing my front-end development skills, with interactive user interfaces and more.
+##  HTML  
+Front-end development and UI projects.  
+ [View HTML Projects](https://github.com/karthic180/HTML)
 
-- **[SmartShopApp](https://github.com/karthic180/smartshopapp)** — An HTML-based shopping application with features like product recommendations and price tracking.
+##  Python  
+Data engineering, ETL, automation, and analytics projects.  
+ [View Python Projects](https://github.com/karthic180/Python)
 
-### Python Projects
-Explore my Python-related projects, including data engineering, web scraping, and automation.
+##  Java  
+Backend and application development projects.  
+ [View Java Projects](https://github.com/karthic180/Java)
 
-- **[Global Data ETL](https://github.com/karthic180/Python#global-data-etl)** — End-to-end ETL pipeline
-- **[Cyber Risk Scanner](https://github.com/karthic180/Python#cyber-risk-scanner)** — Domain cyber-risk detection
-- **[Weather ETL Pipelines](https://github.com/karthic180/Python#weather-etl-pipelines)** — Weather data ingestion + SQLite
-
-### Java Projects
-Explore my Java-based projects, including application development and market data analysis.
-
-- **[MarketQuotesApp](https://github.com/karthic180/Java#marketquotesapp)** — Market data retriever
+##  Go  
+Systems and backend development projects.  
+ [View Go Projects](https://github.com/karthic180/Go)
