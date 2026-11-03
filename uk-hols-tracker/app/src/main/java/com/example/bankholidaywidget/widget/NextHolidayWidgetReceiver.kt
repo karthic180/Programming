@@ -1,1 +1,8 @@
-﻿package com.example.bankholidaywidget.widget`n`nimport androidx.glance.appwidget.GlanceAppWidget`nimport androidx.glance.appwidget.GlanceAppWidgetReceiver`n`nclass NextHolidayWidgetReceiver : GlanceAppWidgetReceiver() {`n    override val glanceAppWidget: GlanceAppWidget = NextHolidayWidget()`n}
+package com.example.bankholidaywidget.widget
+
+import androidx.glance.appwidget.GlanceAppWidget
+import androidx.glance.appwidget.GlanceAppWidgetReceiver
+
+class NextHolidayWidgetReceiver : GlanceAppWidgetReceiver() {
+    override val glanceAppWidget: GlanceAppWidget = NextHolidayWidget()
+}
