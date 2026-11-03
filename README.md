@@ -1,1 +1,22 @@
-﻿# Programming Portfolio — karthic180`n`nWelcome to my central programming repository (`karthic180/Programming`).`n`n## 🚀 Featured Projects`n`n### 🇬🇧 UK Hols Tracker (Android Widget)`n- **Description:** A modern Android Home Screen widget built with **Jetpack Glance** and **Retrofit**.`n- **Sub-Project Folder:** [uk-hols-tracker](./uk-hols-tracker)`n- **Live Web Companion:** [Google Sites Tracker](https://sites.google.com/view/uk-holiday-tracker/full-page-embed)`n`n### 🌐 HTML Projects`n- **Repository:** [github.com/karthic180/HTML](https://github.com/karthic180/HTML)`n`n### 🐍 Python Projects`n- **Repository:** [github.com/karthic180/Python](https://github.com/karthic180/Python)`n`n### ☕ Java Projects`n- **Repository:** [github.com/karthic180/Java](https://github.com/karthic180/Java)`n`n## 📄 License`nDistributed under the MIT License.
+# Programming Portfolio — karthic180
+
+Welcome to my central programming repository (`karthic180/Programming`).
+
+## 🚀 Featured Projects
+
+### 🇬🇧 UK Hols Tracker (Android Widget)
+- **Description:** A modern Android Home Screen widget built with **Jetpack Glance** and **Retrofit**.
+- **Sub-Project Folder:** [uk-hols-tracker](./uk-hols-tracker)
+- **Live Web Companion:** [Google Sites Tracker](https://sites.google.com/view/uk-holiday-tracker/full-page-embed)
+
+### 🌐 HTML Projects
+- **Repository:** [github.com/karthic180/HTML](https://github.com/karthic180/HTML)
+
+### 🐍 Python Projects
+- **Repository:** [github.com/karthic180/Python](https://github.com/karthic180/Python)
+
+### ☕ Java Projects
+- **Repository:** [github.com/karthic180/Java](https://github.com/karthic180/Java)
+
+## 📄 License
+Distributed under the MIT License.
