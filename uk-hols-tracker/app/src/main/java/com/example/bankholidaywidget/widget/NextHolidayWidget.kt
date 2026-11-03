@@ -1,1 +1,82 @@
-﻿package com.example.bankholidaywidget.widget`n`nimport android.content.Context`nimport androidx.compose.runtime.Composable`nimport androidx.compose.ui.unit.dp`nimport androidx.compose.ui.unit.sp`nimport androidx.glance.GlanceId`nimport androidx.glance.GlanceModifier`nimport androidx.glance.GlanceTheme`nimport androidx.glance.appwidget.GlanceAppWidget`nimport androidx.glance.appwidget.provideContent`nimport androidx.glance.background`nimport androidx.glance.layout.Alignment`nimport androidx.glance.layout.Column`nimport androidx.glance.layout.Spacer`nimport androidx.glance.layout.fillMaxSize`nimport androidx.glance.layout.height`nimport androidx.glance.layout.padding`nimport androidx.glance.text.FontWeight`nimport androidx.glance.text.Text`nimport androidx.glance.text.TextStyle`nimport com.example.bankholidaywidget.data.BankHolidayEvent`nimport com.example.bankholidaywidget.data.BankHolidayRepository`nimport kotlinx.coroutines.Dispatchers`nimport kotlinx.coroutines.withContext`n`nclass NextHolidayWidget : GlanceAppWidget() {`n    override suspend fun provideGlance(context: Context, id: GlanceId) {`n        val nextHoliday = withContext(Dispatchers.IO) {`n            BankHolidayRepository.getNextBankHoliday("england-and-wales")`n        }`n        provideContent {`n            GlanceTheme {`n                WidgetContent(nextHoliday)`n            }`n        }`n    }`n`n    @Composable`n    private fun WidgetContent(holiday: BankHolidayEvent?) {`n        Column(`n            modifier = GlanceModifier`n                .fillMaxSize()`n                .padding(16.dp)`n                .background(GlanceTheme.colors.background),`n            verticalAlignment = Alignment.CenterVertically,`n            horizontalAlignment = Alignment.CenterHorizontally`n        ) {`n            Text(`n                text = "Next UK Bank Holiday",`n                style = TextStyle(`n                    fontSize = 12.sp,`n                    color = GlanceTheme.colors.onSurfaceVariant`n                )`n            )`n            Spacer(modifier = GlanceModifier.height(8.dp))`n            if (holiday != null) {`n                Text(`n                    text = holiday.title,`n                    style = TextStyle(`n                        fontSize = 18.sp,`n                        fontWeight = FontWeight.Bold,`n                        color = GlanceTheme.colors.onSurface`n                    )`n                )`n                Spacer(modifier = GlanceModifier.height(4.dp))`n                Text(`n                    text = holiday.date,`n                    style = TextStyle(`n                        fontSize = 14.sp,`n                        color = GlanceTheme.colors.primary`n                    )`n                )`n            } else {`n                Text(`n                    text = "Unable to load data",`n                    style = TextStyle(fontSize = 14.sp, color = GlanceTheme.colors.error)`n                )`n            }`n        }`n    }`n}
+package com.example.bankholidaywidget.widget
+
+import android.content.Context
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.glance.GlanceId
+import androidx.glance.GlanceModifier
+import androidx.glance.GlanceTheme
+import androidx.glance.appwidget.GlanceAppWidget
+import androidx.glance.appwidget.provideContent
+import androidx.glance.background
+import androidx.glance.layout.Alignment
+import androidx.glance.layout.Column
+import androidx.glance.layout.Spacer
+import androidx.glance.layout.fillMaxSize
+import androidx.glance.layout.height
+import androidx.glance.layout.padding
+import androidx.glance.text.FontWeight
+import androidx.glance.text.Text
+import androidx.glance.text.TextStyle
+import com.example.bankholidaywidget.data.BankHolidayEvent
+import com.example.bankholidaywidget.data.BankHolidayRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
+
+class NextHolidayWidget : GlanceAppWidget() {
+    override suspend fun provideGlance(context: Context, id: GlanceId) {
+        val nextHoliday = withContext(Dispatchers.IO) {
+            BankHolidayRepository.getNextBankHoliday("england-and-wales")
+        }
+        provideContent {
+            GlanceTheme {
+                WidgetContent(nextHoliday)
+            }
+        }
+    }
+
+    @Composable
+    private fun WidgetContent(holiday: BankHolidayEvent?) {
+        Column(
+            modifier = GlanceModifier
+                .fillMaxSize()
+                .padding(16.dp)
+                .background(GlanceTheme.colors.background),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Text(
+                text = "Next UK Bank Holiday",
+                style = TextStyle(
+                    fontSize = 12.sp,
+                    color = GlanceTheme.colors.onSurfaceVariant
+                )
+            )
+            Spacer(modifier = GlanceModifier.height(8.dp))
+            if (holiday != null) {
+                Text(
+                    text = holiday.title,
+                    style = TextStyle(
+                        fontSize = 18.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = GlanceTheme.colors.onSurface
+                    )
+                )
+                Spacer(modifier = GlanceModifier.height(4.dp))
+                Text(
+                    text = holiday.date,
+                    style = TextStyle(
+                        fontSize = 14.sp,
+                        color = GlanceTheme.colors.primary
+                    )
+                )
+            } else {
+                Text(
+                    text = "Unable to load data",
+                    style = TextStyle(fontSize = 14.sp, color = GlanceTheme.colors.error)
+                )
+            }
+        }
+    }
+}
