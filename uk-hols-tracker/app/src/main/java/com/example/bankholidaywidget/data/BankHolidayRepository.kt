@@ -1,27 +1,34 @@
 package com.example.bankholidaywidget.data
 
-import com.google.gson.annotations.SerializedName
-import retrofit2.http.GET
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.time.LocalDate
+import java.time.format.DateTimeFormatter
 
-data class GovUkResponse(
-    @SerializedName("england-and-wales") val englandAndWales: DivisionData,
-    val scotland: DivisionData,
-    @SerializedName("northern-ireland") val northernIreland: DivisionData
-)
+object BankHolidayRepository {
+    private val api: GovUkApiService by lazy {
+        Retrofit.Builder()
+            .baseUrl("https://www.gov.uk/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(GovUkApiService::class.java)
+    }
 
-data class DivisionData(
-    val division: String,
-    val events: List<BankHolidayEvent>
-)
-
-data class BankHolidayEvent(
-    val title: String,
-    val date: String,
-    val notes: String?,
-    val bunting: Boolean
-)
-
-interface GovUkApiService {
-    @GET("bank-holidays.json")
-    suspend fun getBankHolidays(): GovUkResponse
+    suspend fun getNextBankHoliday(region: String = "england-and-wales"): BankHolidayEvent? {
+        return runCatching {
+            val response = api.getBankHolidays()
+            val events = when (region) {
+                "scotland" -> response.scotland.events
+                "northern-ireland" -> response.northernIreland.events
+                else -> response.englandAndWales.events
+            }
+            val today = LocalDate.now()
+            val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
+            events
+                .map { Pair(it, LocalDate.parse(it.date, formatter)) }
+                .filter { (_, date) -> !date.isBefore(today) }
+                .minByOrNull { (_, date) -> date }
+                ?.first
+        }.getOrNull()
+    }
 }
