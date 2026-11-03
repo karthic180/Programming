@@ -1,9 +1,12 @@
 # UK Bank Holiday Tracker
 
-[![AI-Assisted Development](https://img.shields.io/badge/AI-Assisted%20Development-blue?style=flat-square&logo=google)](https://gemini.google.com)
-[![GOV.UK Open API](https://img.shields.io/badge/API-GOV.UK%20Open%20Data-green?style=flat-square)](https://www.gov.uk/bank-holidays.json)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
-[![Platform: Web & Mobile](https://img.shields.io/badge/Platform-Google%20Sites%20%7C%20Android%20%7C%20iOS-orange?style=flat-square)]()
+[![Android](https://img.shields.io/badge/Android-3DDC84?style=flat-square&logo=android&logoColor=white)](https://developer.android.com)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
+[![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
+[![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+[![GOV.UK API](https://img.shields.io/badge/API-GOV.UK%20Open%20Data-005EA5?style=flat-square)](https://www.gov.uk/bank-holidays.json)
+[![AI Tools: Google Gemini & ChatGPT](https://img.shields.io/badge/AI%20Tools-Google%20Gemini%20%26%20ChatGPT-8E75B2?style=flat-square&logo=openai&logoColor=white)](https://gemini.google.com/)
 
 A modern, location-aware web application and multi-platform companion designed to track UK bank holidays in real time across England & Wales, Scotland, and Northern Ireland.
 
