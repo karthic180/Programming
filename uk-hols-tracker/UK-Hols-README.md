@@ -33,5 +33,5 @@ A dual-platform project featuring a native Android Home Screen widget (built wit
 - **Smart IP/Geo Auto-Detection:** Embedded JavaScript automatically detects whether a visitor is physically located in Scotland, Northern Ireland, or England/Wales via an IP geolocation service (`ipapi.co`), dynamically adjusting the hero countdown banner and warning users if they are viewing a region that differs from their current physical location.
 - **Custom UI Embeds:** Built responsive, dark-mode gradient HTML/CSS/JS components featuring real-time countdown blocks (Days, Hours, Minutes, Seconds) and official short region abbreviations (`ENG & WALES`, `SCOT`, `NI`).
 
-##  Widget Preview
-![Widget Screenshot](https://github.com/karthic180/Programming/blob/main/uk-hols-tracker/uk%20track2.png)
+##Preview
+![Screenshot](https://github.com/karthic180/Programming/blob/main/uk-hols-tracker/uk%20track2.png)
