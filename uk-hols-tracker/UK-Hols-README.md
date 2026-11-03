@@ -1,7 +1,16 @@
-#  UK Hols Tracker (Android Jetpack Glance)
+# UK Bank Holiday Tracker
+
+[![AI-Assisted](https://img.shields.io/badge/AI-Assisted%20Development-blue?style=flat-square&logo=google)](https://gemini.google.com)
+[![GOV.UK API](https://img.shields.io/badge/API-GOV.UK%20Open%20Data-green?style=flat-square)](https://www.gov.uk/bank-holidays.json)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
+[![Platform: Web & Mobile](https://img.shields.io/badge/Platform-Google%20Sites%20%7C%20Android%20%7C%20iOS-orange?style=flat-square)]()
+
+---
+
+## 🤖 Development & AI Disclosure
+This project was developed and structured collaboratively with AI assistance (Gemini), combining modern HTML5/CSS3/JavaScript components, automated GOV.UK Open API integrations, and mobile widget architectures.
 
 A modern Android widget and tracker built using Jetpack Glance and Retrofit, fetching real-time holiday data from the GOV.UK API.
-
 ##  Tech Stack
 - Kotlin, Jetpack Glance, Retrofit, Gson, Coroutines.
 ## Live Site 
