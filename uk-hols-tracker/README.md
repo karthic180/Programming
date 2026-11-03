@@ -1,0 +1,1 @@
+# ???? UK Hols Tracker (Android Jetpack Glance)`n`nA modern Android Home Screen widget built using Jetpack Glance and Retrofit, fetching real-time holiday data from the GOV.UK API.`n`n## ?? Widget Preview`n![Widget Screenshot](screenshot.png)`n`n## ??? Tech Stack`n- Kotlin, Jetpack Glance, Retrofit, Gson, Coroutines.
