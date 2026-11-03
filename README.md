@@ -10,6 +10,9 @@ Welcome to my central programming repository (`karthic180/Programming`)! This re
 - **Description:** A modern Android Home Screen widget built with **Jetpack Glance** and **Retrofit**, paired with a live web companion tracker. It dynamically fetches official bank holiday schedules directly from the official [GOV.UK Bank Holidays API](https://www.gov.uk/bank-holidays.json).
 - **Tech Stack:** Kotlin, Jetpack Glance, Retrofit, Gson, Coroutines, HTML/CSS.
 - **Live Web Companion:** [Google Sites Tracker](https://sites.google.com/view/uk-holiday-tracker/full-page-embed)
+- **Repo:** [Repo](https://github.com/karthic180/Programming/tree/635db0e295f2682d892b765a96e9727aaf635a08/android-bank-holiday-widget/app/src/main/java/com/example/bankholidaywidget)
+
+
 
 ---
 
