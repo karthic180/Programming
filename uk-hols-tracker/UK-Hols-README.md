@@ -7,26 +7,22 @@ A modern Android widget and tracker built using Jetpack Glance and Retrofit, fet
 ## Live Site 
 [Live Site] (https://sites.google.com/view/uk-holiday-tracker?usp=sharing)
 
-## How I Built It
+Architecture & How It Was Built
+1. Android Native App & Jetpack Glance Widgets
 
-### 1. Architecture & Design Choices
-- **Declarative Widgets with Jetpack Glance:** Instead of traditional XML layouts and `RemoteViews`, this widget is built using **Jetpack Glance**, allowing standard Jetpack Compose mental models and composables to render native home screen widgets with modern theming support (`GlanceTheme`).
-- **Asynchronous Data Handling:** Network calls are offloaded using **Kotlin Coroutines** (`withContext(Dispatchers.IO)`) to ensure the background sync happens smoothly without blocking the main thread or causing ANRs (Application Not Responding).
+    Declarative UI with Jetpack Glance: Instead of legacy XML remote views, the native Android home screen widget is built using Jetpack Glance, letting Jetpack Compose composables render directly onto the Android launcher with dynamic theming (GlanceTheme).
 
-### 2. Networking & Data Layer
-- **Retrofit & Gson:** Built a type-safe API client targeting the official public GOV.UK endpoint (`https://www.gov.uk/bank-holidays.json`). 
-- **Multi-Region Support:** Structured the data models (`GovUkResponse`, `DivisionData`, `BankHolidayEvent`) with `@SerializedName` annotations to map JSON nodes for England & Wales, Scotland, and Northern Ireland independently.
+    Asynchronous Coroutines & Retrofit: Network calls to the official GOV.UK API ([https://www.gov.uk/bank-holidays.json](https://www.gov.uk/bank-holidays.json)) are offloaded to IO threads (Dispatchers.IO) to prevent ANRs and ensure fluid widget syncing.
 
-### 3. Algorithm: Finding the Next Upcoming Holiday
-Using Java's modern `java.time` API (`LocalDate` and `DateTimeFormatter`), the repository filters and calculates the next holiday dynamically:
-1. Fetches the complete JSON event list for the selected region.
-2. Parses string dates (`yyyy-MM-dd`) into `LocalDate` objects.
-3. Filters out any dates that occur before today (`!date.isBefore(today)`).
-4. Selects the closest future date using `.minByOrNull { (_, date) -> date }`.
+    Dynamic Holiday Calculation Algorithm: Using Java's java.time API (LocalDate), the repository parses string dates (yyyy-MM-dd), filters out past events, and calculates the exact upcoming holiday using .minByOrNull { (_, date) -> date }.
 
-### 4. Web Companion Integration
-Alongside the native Android widget, a lightweight HTML file (`index.html`) was created to host a full-screen responsive iframe embedding a live Google Sites companion dashboard (`https://sites.google.com/view/uk-holiday-tracker/full-page-embed`).
+2. Google Sites Web Portal & Interactive Embeds
 
+    Multi-Page Layout Structure: Designed a multi-page portal ([https://sites.google.com/view/uk-holiday-tracker](https://sites.google.com/view/uk-holiday-tracker)) featuring a Home dashboard, dedicated regional breakdowns (Scotland, Northern Ireland, England & Wales), widget setup guides (Android Glance & iOS Scriptable), and a Calendar Sync hub.
+
+    Smart IP/Geo Auto-Detection: Embedded JavaScript automatically detects whether a visitor is physically located in Scotland, Northern Ireland, or England/Wales via an IP geolocation service (ipapi.co), dynamically adjusting the hero countdown banner and warning users if they are viewing a region that differs from their current location.
+
+    Live Countdown & Responsive UI: Built custom, dark-mode gradient HTML/CSS/JS components featuring real-time countdown blocks (Days, Hours, Minutes, Seconds) and official short region abbreviations (ENG & WALES, SCOT, NI).
 
 ##  Widget Preview
 ![Widget Screenshot](https://github.com/karthic180/Programming/blob/main/uk-hols-tracker/uk%20track.png)
