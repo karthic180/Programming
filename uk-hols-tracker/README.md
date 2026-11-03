@@ -12,7 +12,7 @@ A modern, location-aware web application and multi-platform companion designed t
 
 ---
 ##  Development & AI Disclosure
-This project was developed and structured collaboratively with AI assistance (Gemini), combining modern frontend UI patterns, automated API integrations, and mobile widget architectures.
+This project was developed and structured collaboratively with AI tools, combining modern frontend UI patterns, automated API integrations, and mobile widget architectures.
 ##  The Original Idea
  "I want to create a calendar widget to countdown the next bank holiday using the GOV.UK website and auto-change with the next one."
 ## How I Built It
