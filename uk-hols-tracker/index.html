@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UK Bank Holiday Tracker - Master Portal</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        
+        body { 
+            background-color: transparent; 
+            padding: 8px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 12px; 
+            color: #1e293b;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Location Status Bar */
+        .location-status-bar {
+            width: 100%; max-width: 950px;
+            background: #e0e7ff; border: 1px solid #c7d2fe;
+            color: #3730a3; padding: 10px 14px; border-radius: 12px;
+            font-size: 11px; font-weight: 600;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 6px;
+        }
+        .location-status-bar span span { font-weight: 800; color: #312e81; }
+
+        /* Hero Countdown Banner */
+        .banner-container {
+            width: 100%; max-width: 950px;
+            background: linear-gradient(135deg, #1b0a2a 0%, #15183d 50%, #1a1e48 100%);
+            border-radius: 18px; padding: 20px 22px;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.08); gap: 16px; flex-wrap: wrap;
+        }
+
+        .left-content { display: flex; flex-direction: column; gap: 10px; flex: 1; min-width: 250px; }
+        .region-badge-container {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 3px 12px; border-radius: 20px; width: fit-content;
+        }
+        .status-dot { width: 6px; height: 6px; background-color: #4ade80; border-radius: 50%; box-shadow: 0 0 6px #4ade80; }
+        .region-text { font-size: 10px; font-weight: 700; letter-spacing: 0.8px; color: #c7d2fe; text-transform: uppercase; }
+        .holiday-title { font-size: 24px; font-weight: 800; letter-spacing: -0.5px; color: #ffffff; line-height: 1.15; }
+        
+        .details-row { display: flex; align-items: center; gap: 8px; margin-top: 2px; flex-wrap: wrap; }
+        .date-badge { font-size: 13px; font-weight: 600; color: #e2e8f0; }
+        .day-badge { background: rgba(255, 255, 255, 0.12); padding: 2px 8px; border-radius: 6px; font-size: 10px; font-weight: 700; color: #93c5fd; text-transform: uppercase; }
+
+        .right-content { background: rgba(10, 12, 30, 0.5); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 14px; padding: 12px 16px; display: flex; flex-direction: column; align-items: center; gap: 10px; width: 100%; max-width: 320px; }
+        .countdown-label { font-size: 10px; font-weight: 700; letter-spacing: 1px; color: #818cf8; text-transform: uppercase; }
+        .countdown-boxes { display: flex; gap: 6px; width: 100%; justify-content: space-between; }
+        .time-box { background: rgba(17, 24, 39, 0.85); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 8px; flex: 1; height: 50px; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .time-value { font-size: 16px; font-weight: 800; color: #ffffff; line-height: 1; }
+        .time-unit { font-size: 7px; font-weight: 700; color: #6b7280; margin-top: 3px; }
+
+        /* Main Container Cards */
+        .list-card {
+            width: 100%; max-width: 950px;
+            background: #ffffff; border-radius: 18px; padding: 18px 20px;
+            border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            display: flex; flex-direction: column; gap: 12px;
+        }
+        .list-header { font-size: 14px; font-weight: 700; color: #0f172a; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; }
+        
+        /* Region Selector Tabs */
+        .region-tabs { display: flex; gap: 6px; flex-wrap: wrap; width: 100%; }
+        .tab-btn { background: #f1f5f9; border: none; padding: 8px 12px; border-radius: 8px; font-size: 11px; font-weight: 700; color: #64748b; cursor: pointer; flex: 1; text-align: center; min-width: 85px; transition: all 0.2s ease; }
+        .tab-btn:hover { background: #e2e8f0; color: #0f172a; }
+        .tab-btn.active { background: #4f46e5; color: #ffffff; box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25); }
+
+        /* Scrollable & Expandable Lists */
+        .mini-list { 
+            display: flex; flex-direction: column; gap: 6px; 
+            max-height: 250px; overflow-y: auto; padding-right: 2px; 
+            transition: max-height 0.3s ease;
+        }
+        .mini-list.expanded { max-height: 480px; }
+        .mini-list::-webkit-scrollbar { width: 5px; }
+        .mini-list::-webkit-scrollbar-track { background: #f1f5f9; border-radius: 4px; }
+        .mini-list::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+
+        .mini-item { display: flex; align-items: center; justify-content: space-between; padding: 10px 14px; background: #f8fafc; border: 1px solid #f1f5f9; border-radius: 10px; gap: 8px; }
+        .mini-item-title { font-size: 12px; font-weight: 700; color: #0f172a; }
+        .mini-item-date { font-size: 11px; color: #64748b; font-weight: 600; white-space: nowrap; }
+
+        .expand-toggle-bar { text-align: center; border-top: 1px solid #f1f5f9; padding-top: 8px; }
+        .expand-btn { background: transparent; border: none; color: #4f46e5; font-size: 11px; font-weight: 700; cursor: pointer; padding: 6px 12px; border-radius: 6px; }
+        .expand-btn:hover { background: #eef2ff; }
+
+        /* Footer Grid */
+        .info-grid {
+            width: 100%; max-width: 950px;
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+        }
+        .notice-card {
+            background: #ffffff; border-radius: 16px; padding: 14px 16px;
+            border: 1px solid #e2e8f0; box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            display: flex; align-items: flex-start; gap: 10px;
+        }
+        .notice-icon { font-size: 15px; line-height: 1; margin-top: 1px; }
+        .notice-content { display: flex; flex-direction: column; gap: 2px; }
+        .notice-title { font-size: 11px; font-weight: 700; color: #0f172a; text-transform: uppercase; letter-spacing: 0.5px; }
+        .notice-text { font-size: 10px; color: #64748b; line-height: 1.4; }
+
+        @media (max-width: 768px) {
+            .banner-container { padding: 16px; flex-direction: column; align-items: stretch; }
+            .right-content { max-width: 100%; }
+            .holiday-title { font-size: 21px; }
+            .info-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Location Status Bar -->
+    <div class="location-status-bar" id="statusBar">
+        <span>📍 Location: <span id="locationSourceText">Detecting region...</span></span>
+        <span id="activeDivisionLabel" style="font-size: 10px; background: #c7d2fe; padding: 2px 6px; border-radius: 4px; color: #312e81;">ENG WALES</span>
+    </div>
+
+    <!-- Hero Countdown Banner -->
+    <div class="banner-container">
+        <div class="left-content">
+            <div class="region-badge-container">
+                <div class="status-dot"></div>
+                <span id="region-text" class="region-text">NEXT BANK HOLIDAY</span>
+            </div>
+            <div id="holiday-title" class="holiday-title">Loading feed...</div>
+            <div class="details-row">
+                <div class="date-badge"><span id="holiday-date">-- --- ----</span></div>
+                <div id="day-badge" class="day-badge">---</div>
+            </div>
+        </div>
+
+        <div class="right-content">
+            <div class="countdown-label">Time Remaining</div>
+            <div class="countdown-boxes">
+                <div class="time-box"><span id="days" class="time-value">00</span><span class="time-unit">DAYS</span></div>
+                <div class="time-box"><span id="hours" class="time-value">00</span><span class="time-unit">HOURS</span></div>
+                <div class="time-box"><span id="mins" class="time-value">00</span><span class="time-unit">MINS</span></div>
+                <div class="time-box"><span id="secs" class="time-value">00</span><span class="time-unit">SECS</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Expandable Regional Feed Card -->
+    <div class="list-card">
+        <div class="list-header">
+            <span id="feedTitle">📅 Regional Bank Holidays</span>
+            <div class="region-tabs" id="regionTabsContainer">
+                <button class="tab-btn active" data-region="england-and-wales" onclick="switchRegion('england-and-wales', this)">ENG WALES</button>
+                <button class="tab-btn" data-region="scotland" onclick="switchRegion('scotland', this)">SCOT</button>
+                <button class="tab-btn" data-region="northern-ireland" onclick="switchRegion('northern-ireland', this)">NI</button>
+            </div>
+        </div>
+        
+        <div class="mini-list" id="miniListContainer"></div>
+
+        <div class="expand-toggle-bar">
+            <button class="expand-btn" id="expandToggleBtn" onclick="toggleExpandList()">▼ Expand Full List</button>
+        </div>
+    </div>
+
+    <!-- Footer Notices -->
+    <div class="info-grid">
+        <div class="notice-card">
+            <div class="notice-icon">⚙️</div>
+            <div class="notice-content">
+                <div class="notice-title">How the Feed Works</div>
+                <div class="notice-text">Queries live GOV.UK Open Data API (<code>bank-holidays.json</code>). Past events are filtered out locally.</div>
+            </div>
+        </div>
+        <div class="notice-card">
+            <div class="notice-icon">🔒</div>
+            <div class="notice-content">
+                <div class="notice-title">Data & GDPR Privacy</div>
+                <div class="notice-text">IP geolocation runs client-side solely to set regional tabs. No personal tracking or logs are stored.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let globalData = null;
+        let currentDivision = "england-and-wales";
+        let targetDateTime = null;
+        let countdownTimer = null;
+        let isListExpanded = false;
+        let currentEventsCache = [];
+
+        async function initTracker() {
+            let detectedDivision = "england-and-wales";
+            let detectionMethod = "Default (ENG WALES)";
+
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 3000);
+
+                const geoRes = await fetch("https://ipapi.co/json/", { signal: controller.signal });
+                clearTimeout(timeoutId);
+
+                if (geoRes.ok) {
+                    const geoData = await geoRes.json();
+                    if (geoData.region === "Scotland") {
+                        detectedDivision = "scotland";
+                        detectionMethod = `IP Lookup (${geoData.region})`;
+                    } else if (geoData.region === "Northern Ireland") {
+                        detectedDivision = "northern-ireland";
+                        detectionMethod = `IP Lookup (${geoData.region})`;
+                    } else if (geoData.region) {
+                        detectionMethod = `IP Lookup (${geoData.region})`;
+                    }
+                }
+            } catch (err) {
+                detectionMethod = "Fallback (ENG WALES)";
+            }
+
+            document.getElementById("locationSourceText").innerText = detectionMethod;
+
+            try {
+                const apiRes = await fetch("https://www.gov.uk/bank-holidays.json");
+                if (!apiRes.ok) throw new Error("Network failed");
+                
+                globalData = await apiRes.json();
+                
+                const targetBtn = document.querySelector(`[data-region="${detectedDivision}"]`) || document.querySelector('.tab-btn');
+                switchRegion(detectedDivision, targetBtn);
+
+            } catch (apiErr) {
+                document.getElementById("holiday-title").innerText = "Unavailable";
+                document.getElementById("miniListContainer").innerHTML = `
+                    <div style="padding: 10px; text-align: center; color: #ef4444; font-size: 11px; font-weight: 600;">
+                        ⚠️ Unable to reach GOV.UK feed. Please check connection.
+                    </div>`;
+                document.getElementById("locationSourceText").innerText = "API Error";
+            }
+        }
+
+        function switchRegion(divisionKey, btnElement) {
+            currentDivision = divisionKey;
+
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            if(btnElement) btnElement.classList.add('active');
+
+            const readableNames = {
+                'england-and-wales': 'ENG WALES',
+                'scotland': 'SCOT',
+                'northern-ireland': 'NI'
+            };
+            const labelKey = readableNames[divisionKey] || 'ENG WALES';
+            document.getElementById("activeDivisionLabel").innerText = labelKey;
+            document.getElementById("region-text").innerText = `${labelKey} NEXT BANK HOLIDAY`;
+
+            if (globalData && globalData[divisionKey]) {
+                currentEventsCache = globalData[divisionKey].events;
+                renderDivisionData(currentEventsCache);
+            }
+        }
+
+        function renderDivisionData(events) {
+            const now = new Date();
+            const todayStr = now.toISOString().split('T')[0];
+            const upcoming = events.filter(e => e.date >= todayStr);
+
+            if (upcoming.length > 0) {
+                const nextEvent = upcoming[0];
+                targetDateTime = new Date(nextEvent.date + "T00:00:00");
+
+                document.getElementById("holiday-title").innerText = nextEvent.title;
+                
+                const dateObj = new Date(nextEvent.date);
+                document.getElementById("holiday-date").innerText = dateObj.toLocaleDateString("en-GB", { 
+                    day: 'numeric', month: 'short', year: 'numeric' 
+                });
+                document.getElementById("day-badge").innerText = dateObj.toLocaleDateString("en-GB", { weekday: 'short' });
+
+                if (countdownTimer) clearInterval(countdownTimer);
+                updateCountdown();
+                countdownTimer = setInterval(updateCountdown, 1000);
+
+                renderListItems(upcoming);
+            } else {
+                document.getElementById("holiday-title").innerText = "No Upcoming Holidays";
+                document.getElementById("miniListContainer").innerHTML = `<div style="padding:10px; text-align:center; color:#94a3b8; font-size:11px;">No future bank holidays listed.</div>`;
+            }
+        }
+
+        function renderListItems(upcomingEvents) {
+            const listContainer = document.getElementById("miniListContainer");
+            const displayLimit = isListExpanded ? upcomingEvents.length : 5;
+
+            listContainer.innerHTML = upcomingEvents.slice(0, displayLimit).map(e => {
+                const d = new Date(e.date);
+                const formattedDate = d.toLocaleDateString("en-GB", { 
+                    weekday: 'short', day: 'numeric', month: 'short', year: 'numeric' 
+                });
+                return `
+                    <div class="mini-item">
+                        <span class="mini-item-title">${e.title}</span>
+                        <span class="mini-item-date">${formattedDate}</span>
+                    </div>
+                `;
+            }).join('');
+
+            const toggleBtn = document.getElementById("expandToggleBtn");
+            if (upcomingEvents.length > 5) {
+                toggleBtn.style.display = "inline-block";
+                toggleBtn.innerText = isListExpanded ? "▲ Collapse List" : `▼ Expand Full List (${upcomingEvents.length})`;
+            } else {
+                toggleBtn.style.display = "none";
+            }
+        }
+
+        function toggleExpandList() {
+            isListExpanded = !isListExpanded;
+            const container = document.getElementById("miniListContainer");
+            if (isListExpanded) {
+                container.classList.add('expanded');
+            } else {
+                container.classList.remove('expanded');
+            }
+            if (globalData && globalData[currentDivision]) {
+                const now = new Date();
+                const todayStr = now.toISOString().split('T')[0];
+                const upcoming = globalData[currentDivision].events.filter(e => e.date >= todayStr);
+                renderListItems(upcoming);
+            }
+        }
+
+        function updateCountdown() {
+            if (!targetDateTime) return;
+            const now = new Date();
+            const diff = targetDateTime - now;
+
+            if (diff <= 0) {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("mins").innerText = "00";
+                document.getElementById("secs").innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const mins = Math.floor((diff / 1000 / 60) % 60);
+            const secs = Math.floor((diff / 1000) % 60);
+
+            document.getElementById("days").innerText = String(days).padStart(2, '0');
+            document.getElementById("hours").innerText = String(hours).padStart(2, '0');
+            document.getElementById("mins").innerText = String(mins).padStart(2, '0');
+            document.getElementById("secs").innerText = String(secs).padStart(2, '0');
+        }
+
+        initTracker();
+    </script>
+</body>
+</html>
