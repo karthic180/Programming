@@ -1,46 +1,36 @@
-# UK Bank Holiday Tracker
+# 🇬🇧 UK Bank Holiday Tracker
 
-[![AI-Assisted](https://img.shields.io/badge/AI-Assisted%20Development-blue?style=flat-square&logo=google)](https://gemini.google.com)
-[![GOV.UK API](https://img.shields.io/badge/API-GOV.UK%20Open%20Data-green?style=flat-square)](https://www.gov.uk/bank-holidays.json)
+[![AI-Assisted Development](https://img.shields.io/badge/AI-Assisted%20Development-blue?style=flat-square&logo=google)](https://gemini.google.com)
+[![GOV.UK Open API](https://img.shields.io/badge/API-GOV.UK%20Open%20Data-green?style=flat-square)](https://www.gov.uk/bank-holidays.json)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Platform: Web & Mobile](https://img.shields.io/badge/Platform-Google%20Sites%20%7C%20Android%20%7C%20iOS-orange?style=flat-square)]()
+
+A modern, location-aware web application and multi-platform companion designed to track UK bank holidays in real time across England & Wales, Scotland, and Northern Ireland.
+
+---
+
+## 🛠️ How I Built It
+
+I designed and built this project from the ground up to be lightweight, instant-loading, and completely serverless by leveraging modern web standards and public data feeds.
+
+### 1. Architecture & Tech Stack
+* **Frontend Core:** Pure **HTML5, CSS3, and Vanilla JavaScript**, structured into modular components embedded directly into a polished multi-page **Google Sites** portal (`https://sites.google.com/view/uk-holiday-tracker`).
+* **Live Data Feed:** Automatically queries the official **GOV.UK Open Data API** (`bank-holidays.json`) on load. Past events are filtered out locally, and upcoming dates are parsed dynamically.
+* **Smart Geolocation:** Integrated client-side IP lookup via **ipapi.co** with robust timeout guards and automatic fallbacks to instantly detect the user's region (**ENG WALES**, **SCOT**, or **NI**).
+
+### 2. Key Features Developed
+* **Live Countdown Banners:** Dark-mode gradient countdown timers that calculate real-time days, hours, minutes, and seconds until the next regional public holiday.
+* **Multi-Region Navigation:** Clean, short regional abbreviation tabs (`ENG WALES`, `SCOT`, `NI`) with smooth active states.
+* **Expandable Holiday Lists:** Scrollable container cards featuring a custom expandable view toggle (`▼ Expand Full List`) to keep the UI clean on both desktop and mobile viewports.
+* **Calendar Syncing (`.ics` Generator):** A built-in utility that programmatically generates standard `.ics` calendar files on the fly, allowing visitors to download and sync schedules directly into Apple Calendar, Google Calendar, or Microsoft Outlook.
+* **Developer Ecosystem:** Extended with custom native snippets for Android (`BankHolidayRepository.kt`, `GovUkApiService.kt`, `NextHolidayWidget.kt`) and iOS Scriptable widgets.
+
+### 3. Privacy & Compliance
+* Built with strict **GDPR compliance** in mind: location detection runs entirely client-side, and no personal identifiers, tracking cookies, or location logs are ever stored or shared.
 
 ---
 
 ## 🤖 Development & AI Disclosure
-This project was developed and structured collaboratively with AI assistance (Gemini), combining modern HTML5/CSS3/JavaScript components, automated GOV.UK Open API integrations, and mobile widget architectures.
-
-A modern Android widget and tracker built using Jetpack Glance and Retrofit, fetching real-time holiday data from the GOV.UK API.
-##  Tech Stack
-- Kotlin, Jetpack Glance, Retrofit, Gson, Coroutines.
-## Live Site 
-[Live Site] (https://sites.google.com/view/uk-holiday-tracker?usp=sharing)
-
-# 🇬🇧 UK Hols Tracker & Portal
-
-A dual-platform project featuring a native Android Home Screen widget (built with Jetpack Glance & Retrofit) and a location-aware multi-page web portal hosted on Google Sites.
-
-## 📱 Tech Stack
-- **Android:** Kotlin, Jetpack Glance, Coroutines, Retrofit, Gson.
-- **Web Portal:** HTML5, CSS3, JavaScript, GOV.UK Open API, IP Geolocation Integration.
-
----
-
-## 🏗️ How It Was Built
-
-### 1. Android Architecture & Jetpack Glance Widgets
-- **Declarative Widgets with Jetpack Glance:** Instead of legacy XML remote views and `RemoteViews`, this widget is built using **Jetpack Glance**, enabling standard Jetpack Compose mental models and composables to render native Android home screen widgets with modern theming support (`GlanceTheme`).
-- **Asynchronous Data Handling:** Network calls are offloaded using **Kotlin Coroutines** (`withContext(Dispatchers.IO)`) to ensure background synchronization runs smoothly without blocking the main UI thread or causing ANRs.
-- **Holiday Calculation Algorithm:** Utilizing Java's modern `java.time` API (`LocalDate` and `DateTimeFormatter`), the repository parses string dates (`yyyy-MM-dd`), filters out past events, and calculates the upcoming holiday dynamically via `.minByOrNull { (_, date) -> date }`.
-
-### 2. Networking & Multi-Region Support
-- **Retrofit & Gson:** Built a type-safe API client targeting the official public GOV.UK endpoint (`https://www.gov.uk/bank-holidays.json`).
-- **Regional Data Models:** Structured the data layers (`GovUkResponse`, `DivisionData`, `BankHolidayEvent`) with `@SerializedName` annotations to map JSON nodes independently across England & Wales, Scotland, and Northern Ireland.
-
-### 3. Web Portal & Location-Aware Integration
-- **Multi-Page Layout Structure:** Designed a multi-page web portal hosted on Google Sites featuring a Home dashboard, dedicated regional breakdowns (**Scotland**, **Northern Ireland**, **England & Wales**), widget setup guides (**Android Glance** & **iOS Scriptable**), and a **Calendar Sync** hub.
-- **Smart IP/Geo Auto-Detection:** Embedded JavaScript automatically detects whether a visitor is physically located in Scotland, Northern Ireland, or England/Wales via an IP geolocation service (`ipapi.co`), dynamically adjusting the hero countdown banner and warning users if they are viewing a region that differs from their current physical location.
-- **Custom UI Embeds:** Built responsive, dark-mode gradient HTML/CSS/JS components featuring real-time countdown blocks (Days, Hours, Minutes, Seconds) and official short region abbreviations (`ENG & WALES`, `SCOT`, `NI`).
-
-##Preview
+This project was developed and structured collaboratively with AI assistance (Gemini), combining modern frontend UI patterns, automated API integrations, and mobile widget architectures.
+## Preview
 ![Screenshot](https://github.com/karthic180/Programming/blob/main/uk-hols-tracker/uk%203%20track.png)
