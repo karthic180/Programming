@@ -1,1 +1,27 @@
-﻿package com.example.bankholidaywidget.data`n`nimport com.google.gson.annotations.SerializedName`nimport retrofit2.http.GET`n`ndata class GovUkResponse(`n    @SerializedName("england-and-wales") val englandAndWales: DivisionData,`n    val scotland: DivisionData,`n    @SerializedName("northern-ireland") val northernIreland: DivisionData`n)`n`ndata class DivisionData(`n    val division: String,`n    val events: List<BankHolidayEvent>`n)`n`ndata class BankHolidayEvent(`n    val title: String,`n    val date: String,`n    val notes: String?,`n    val bunting: Boolean`n)`n`ninterface GovUkApiService {`n    @GET("bank-holidays.json")`n    suspend fun getBankHolidays(): GovUkResponse`n}
+package com.example.bankholidaywidget.data
+
+import com.google.gson.annotations.SerializedName
+import retrofit2.http.GET
+
+data class GovUkResponse(
+    @SerializedName("england-and-wales") val englandAndWales: DivisionData,
+    val scotland: DivisionData,
+    @SerializedName("northern-ireland") val northernIreland: DivisionData
+)
+
+data class DivisionData(
+    val division: String,
+    val events: List<BankHolidayEvent>
+)
+
+data class BankHolidayEvent(
+    val title: String,
+    val date: String,
+    val notes: String?,
+    val bunting: Boolean
+)
+
+interface GovUkApiService {
+    @GET("bank-holidays.json")
+    suspend fun getBankHolidays(): GovUkResponse
+}
