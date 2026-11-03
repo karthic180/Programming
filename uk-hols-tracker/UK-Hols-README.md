@@ -34,4 +34,4 @@ A dual-platform project featuring a native Android Home Screen widget (built wit
 - **Custom UI Embeds:** Built responsive, dark-mode gradient HTML/CSS/JS components featuring real-time countdown blocks (Days, Hours, Minutes, Seconds) and official short region abbreviations (`ENG & WALES`, `SCOT`, `NI`).
 
 ##  Widget Preview
-![Widget Screenshot](https://github.com/karthic180/Programming/blob/main/uk-hols-tracker/uk%20track.png)
+![Widget Screenshot](https://github.com/karthic180/Programming/blob/main/uk-hols-tracker/uk%20track2.png)
