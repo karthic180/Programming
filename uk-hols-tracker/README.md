@@ -8,7 +8,10 @@
 A modern, location-aware web application and multi-platform companion designed to track UK bank holidays in real time across England & Wales, Scotland, and Northern Ireland.
 
 ---
-
+## 🤖 Development & AI Disclosure
+This project was developed and structured collaboratively with AI assistance (Gemini), combining modern frontend UI patterns, automated API integrations, and mobile widget architectures.
+## 💡 The Original Idea
+ "I want to create a calendar widget to countdown the next bank holiday using the GOV.UK website and auto-change with the next one."
 ## 🛠️ How I Built It
 
 I designed and built this project from the ground up to be lightweight, instant-loading, and completely serverless by leveraging modern web standards and public data feeds.
@@ -29,8 +32,5 @@ I designed and built this project from the ground up to be lightweight, instant-
 * Built with strict **GDPR compliance** in mind: location detection runs entirely client-side, and no personal identifiers, tracking cookies, or location logs are ever stored or shared.
 
 ---
-
-## 🤖 Development & AI Disclosure
-This project was developed and structured collaboratively with AI assistance (Gemini), combining modern frontend UI patterns, automated API integrations, and mobile widget architectures.
 ## Preview
 ![Screenshot](https://github.com/karthic180/Programming/blob/main/uk-hols-tracker/uk%203%20track.png)
