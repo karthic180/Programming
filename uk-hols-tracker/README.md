@@ -27,7 +27,6 @@ I designed and built this project from the ground up to be lightweight, instant-
 ###  Key Features Developed
 * **Live Countdown Banners:** Dark-mode gradient countdown timers that calculate real-time days, hours, minutes, and seconds until the next regional public holiday.
 * **Multi-Region Navigation:** Clean, short regional abbreviation tabs (`ENG WALES`, `SCOT`, `NI`) with smooth active states.
-* **Expandable Holiday Lists:** Scrollable container cards featuring a custom expandable view toggle (`▼ Expand Full List`) to keep the UI clean on both desktop and mobile viewports.
 * **Calendar Syncing (`.ics` Generator):** A built-in utility that programmatically generates standard `.ics` calendar files on the fly, allowing visitors to download and sync schedules directly into Apple Calendar, Google Calendar, or Microsoft Outlook.
 * **Developer Ecosystem:** Extended with custom native snippets for Android (`BankHolidayRepository.kt`, `GovUkApiService.kt`, `NextHolidayWidget.kt`) and iOS Scriptable widgets.
 
