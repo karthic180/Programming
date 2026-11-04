@@ -32,7 +32,7 @@ I designed and built this project from the ground up to be lightweight, instant-
 * **Developer Ecosystem:** Extended with custom native snippets for Android (`BankHolidayRepository.kt`, `GovUkApiService.kt`, `NextHolidayWidget.kt`) and iOS Scriptable widgets.
 
 ###  Privacy & Compliance
-* Built with strict **GDPR compliance** in mind: location detection runs entirely client-side, and no personal identifiers, tracking cookies, or location logs are ever stored or shared.
+* Location detection runs entirely client-side, and no personal identifiers, tracking cookies, or location logs are ever stored or shared.
 
 ---
 ## Preview
