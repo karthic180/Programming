@@ -4,8 +4,7 @@
 
 ###  Hols Tracker (Android Widget)
 - **Description:** A modern Android Home Screen widget built with **Jetpack Glance** and **Retrofit**.
-- **Sub-Project Folder:** [uk-hols-tracker](./uk-hols-tracker)
-- **Live Web Companion:** [Google Sites Tracker](https://sites.google.com/view/uk-holiday-tracker/full-page-embed)
+- **Live Web Companion:** [Google Sites Tracker](https://sites.google.com/view/uk-holiday-tracker/home)
 
 ###  HTML Projects
 - **Repository:** [github.com/karthic180/HTML](https://github.com/karthic180/HTML)
